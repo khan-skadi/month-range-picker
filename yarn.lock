@@ -8533,6 +8533,12 @@
   "resolved" "https://registry.npmjs.org/mkdirp/-/mkdirp-1.0.4.tgz"
   "version" "1.0.4"
 
+"month-range-picker@file:../../../AppData/Roaming/nvm/v16.13.1/node_modules/month-range-picker":
+  "resolved" "file:../../../AppData/Roaming/nvm/v16.13.1/node_modules/month-range-picker"
+  "version" "1.0.6"
+  dependencies:
+    "jquery" "^3.2.1"
+
 "mri@^1.2.0":
   "integrity" "sha512-tzzskb3bG8LvYGFF/mDTpq3jpI6Q9wc3LEmBaghu+DdCssd1FakN7Bc0hVNmEyGq1bq3RgfkCb3cmQLpNPOroA=="
   "resolved" "https://registry.npmjs.org/mri/-/mri-1.2.0.tgz"
