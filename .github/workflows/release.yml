@@ -48,7 +48,7 @@ jobs:
         env:
           NPM_TOKEN: ${{ secrets.GITHUB_TOKEN  }}
         run: |
-          echo "@viniarruda:registry=https://https://registry.npmjs.org/" >> ~/.npmrc && echo "//https://registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc && cat ~/.npmrc
+          echo "@khan-skadi:registry=https://https://registry.npmjs.org/" >> ~/.npmrc && echo "//https://registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc && cat ~/.npmrc
 
       - name: Create Release
         uses: actions/create-release@v1
@@ -60,10 +60,10 @@ jobs:
           body: ${{ steps.tag_version.outputs.changelog }}
 
       - name: Update Github Name
-        run: git config user.name viniarruda
+        run: git config user.name khan-skadi
 
       - name: Update Github Email
-        run: git config user.email viniarruda.souza@gmail.com
+        run: git config user.email kartalov.pt@gmail.com
 
       - name: Commit Updated Version
         run: npm version ${{ steps.tag_version.outputs.new_version }}
