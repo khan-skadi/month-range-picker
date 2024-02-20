@@ -15,6 +15,7 @@ export const MonthRangePicker: React.FC<MonthRangePickerProps> = ({
   headerClassName,
   monthClassName,
   disableControls = false,
+  onChangeCallback,
 }) => {
   const [startMonth, setStartMonth] = useState<Date | null>(null)
   const [endMonth, setEndMonth] = useState<Date | null>(null)
@@ -62,6 +63,10 @@ export const MonthRangePicker: React.FC<MonthRangePickerProps> = ({
       setEndMonth(startMonth)
     } else {
       setEndMonth(month)
+    }
+
+    if (typeof onChangeCallback !== 'undefined') {
+      onChangeCallback(month, startMonth, endMonth)
     }
   }
 

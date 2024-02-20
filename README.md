@@ -4,23 +4,11 @@ React component that can select an range of months separated by year
 
 # Install in your project
 
-You can find more information in [npm](https://www.npmjs.com/package/@viniarruda/react-month-range-picker)
-
 ```
-yarn add @viniarruda/react-month-range-picker
+yarn add @khan_skadi/react-month-range-picker
 or
-npm i @viniarruda/react-month-range-picker
+npm i @khan_skadi/react-month-range-picker
 ```
-
-Demo [here](https://viniarruda-react-month-range-picker.vercel.app/?path=/story/forms-monthrangepicker--default)
-
-# Examples
-
-![default](https://github.com/viniarruda/react-month-range-picker/blob/main/assets/oneColumn.png?raw=true)
-
-![two columns](https://github.com/viniarruda/react-month-range-picker/blob/main/assets/twoColumns.png?raw=true)
-
-
 
 # Run
 

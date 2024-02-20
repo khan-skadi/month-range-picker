@@ -14,4 +14,9 @@ export type MonthRangePickerProps = {
   headerClassName?: string
   monthClassName?: string
   disableControls?: boolean
+  onChangeCallback?: (
+    thisMonth: Date,
+    startMonth: Date | null,
+    endMonth: Date | null
+  ) => void
 }
