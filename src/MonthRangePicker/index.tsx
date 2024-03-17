@@ -82,6 +82,7 @@ export const MonthRangePicker: React.FC<MonthRangePickerProps> = ({
     const isSelected = isMonthSelected(monthStart)
     const isStart = isMonthStart(monthStart)
     const isEnd = isMonthEnd(monthStart)
+    console.log('TODAY: ', today)
     /* Disable dates more than 12 months back. */
     const isDisabled = monthStart > today || monthStart < pastYear
 
