@@ -19,4 +19,5 @@ export type MonthRangePickerProps = {
     startMonth: Date | null,
     endMonth: Date | null
   ) => void
+  disabledDates?: string[]
 }

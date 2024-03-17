@@ -16,6 +16,7 @@ export const MonthRangePicker: React.FC<MonthRangePickerProps> = ({
   monthClassName,
   disableControls = false,
   onChangeCallback,
+  disabledDates,
 }) => {
   const [startMonth, setStartMonth] = useState<Date | null>(null)
   const [endMonth, setEndMonth] = useState<Date | null>(null)
@@ -82,8 +83,13 @@ export const MonthRangePicker: React.FC<MonthRangePickerProps> = ({
     const isSelected = isMonthSelected(monthStart)
     const isStart = isMonthStart(monthStart)
     const isEnd = isMonthEnd(monthStart)
+    const currentDate = `${year}-${String(month).padStart(2, '0')}`
     /* Disable dates more than 12 months back. */
-    const isDisabled = monthStart > today || monthStart < pastYear
+    /* v2.0.8 Add support for array of disabled dates. */
+    const isDisabled =
+      disabledDates && disabledDates.length > 0
+        ? disabledDates.includes(currentDate)
+        : monthStart > today || monthStart < pastYear
 
     const getVariants = () => {
       if (isStart) return 'start'
