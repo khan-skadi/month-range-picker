@@ -70,12 +70,20 @@ export const MonthRangePicker: React.FC<MonthRangePickerProps> = ({
     }
   }
 
+  const subtractMonths = (date: Date, months: number) => {
+    const d = new Date(date)
+    d.setMonth(d.getMonth() - months)
+    return d
+  }
+
   const renderMonth = (year: number, month: number) => {
     const monthStart = new Date(year, month, 1)
+    const pastYear = subtractMonths(today, 13)
     const isSelected = isMonthSelected(monthStart)
     const isStart = isMonthStart(monthStart)
     const isEnd = isMonthEnd(monthStart)
-    const isDisabled = monthStart > today
+    /* Disable dates more than 12 months back. */
+    const isDisabled = monthStart > today || monthStart < pastYear
 
     const getVariants = () => {
       if (isStart) return 'start'
@@ -169,22 +177,24 @@ export const MonthRangePicker: React.FC<MonthRangePickerProps> = ({
             justify="between"
             p="12"
             align="center"
-            className="header-wrapper"
+            className="row header-wrapper"
           >
+            {' '}
             {!disableControls && (
               <Arrow onClick={handlePrevYear}>
-                <ChevronLeft fill="$textSecondary" fontSize="$20" />
+                {' '}
+                <ChevronLeft fill="$textSecondary" fontSize="$20" />{' '}
               </Arrow>
-            )}
-            <Flex mx="4">
+            )}{' '}
+            <Flex mx="4" className="flex-wrapper">
+              {' '}
               <Typography color="secondary" size="14" weight="regular">
-                {/* {today.getFullYear() + yearOffset} */}
+                {' '}
                 {initialYear}
               </Typography>
             </Flex>
-            <Flex mx="4">
+            <Flex mx="4" className="flex-wrapper">
               <Typography color="secondary" size="14" weight="regular">
-                {/* {today.getFullYear() + yearOffset + 1} */}
                 {initialYear + yearOffset + 1}
               </Typography>
             </Flex>
@@ -194,7 +204,7 @@ export const MonthRangePicker: React.FC<MonthRangePickerProps> = ({
               </Arrow>
             )}
           </Row>
-          <Flex gap="4" className="months-wrapper">
+          <Flex gap="4" className="flex-wrapper months-wrapper">
             {renderYear(initialYear + yearOffset)}
             {renderYear(today.getFullYear() + yearOffset)}
           </Flex>
